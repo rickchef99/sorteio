@@ -1,0 +1,1 @@
+(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[9789],{2239:function(n,_,u){(window.__NEXT_P=window.__NEXT_P||[]).push(["/sorteio/[url]",function(){return u(1568)}])}},function(n){n.O(0,[5675,8799,1372,6143,1568,9774,2888,179],(function(){return _=2239,n(n.s=_);var _}));var _=n.O();_N_E=_}]);
