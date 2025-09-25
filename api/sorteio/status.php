@@ -18,8 +18,10 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, [
 $response = curl_exec($ch);
 curl_close($ch);
 
+
 $json = json_decode($response, true);
 $status = $json['status'] ?? 'UNKNOWN';
+$qrcode = $json['pixInformation']['qrCode'] ?? '';
 $qrBase64 = $json['pixInformation']['base64'] ?? '';
 $qrImage = $qrBase64 ? "data:image/png;base64," . $qrBase64 : '';
 $amount = $json['amount'] ?? 0;
@@ -171,7 +173,7 @@ $displayStatus = $statusTraduzido[$status] ?? 'Desconhecido';
                 <img src="<?= htmlspecialchars($qrImage) ?>" alt="QR Code PIX" style="max-width: 200px; border-radius: 10px;">
             </div>
             <p class="mb-3">Escaneie o QR Code para pagar via PIX.</p>
-            <button class="copy-btn" onclick="copyQRCode('<?= htmlspecialchars($qrBase64) ?>')">Copiar Código PIX</button>
+            <button class="copy-btn" onclick="copyQRCode('<?= htmlspecialchars($qrcode) ?>')">Copiar Código PIX</button>
             <button class="check-btn" onclick="location.reload()">Atualizar</button>
         <?php else: ?>
             <p>QR Code não disponível. Entre em contato conosco.</p>
@@ -187,7 +189,7 @@ $displayStatus = $statusTraduzido[$status] ?? 'Desconhecido';
                 <img src="<?= htmlspecialchars($qrImage) ?>" alt="QR Code PIX" style="max-width: 200px; border-radius: 10px;">
             </div>
             <p class="mb-3">Escaneie o QR Code para pagar via PIX.</p>
-            <button class="copy-btn" onclick="copyQRCode('<?= htmlspecialchars($qrBase64) ?>')">Copiar Código PIX</button>
+            <button class="copy-btn" onclick="copyQRCode('<?= htmlspecialchars($qrcode) ?>')">Copiar Código PIX</button>
         <?php endif; ?>
         <button class="check-btn" onclick="location.reload()">Atualizar</button>
     <?php endif; ?>
