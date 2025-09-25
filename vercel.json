@@ -5,6 +5,9 @@
         { "src": "sorteio/status.php", "use": "vercel-php@0.7.3" }
     ],
     "routes": [
-      { "src": "/(.*)", "dest": "/$1" }
+        {
+            "src": "/public/(.*)",
+            "dest": "/$1"
+        }
     ]
 }
