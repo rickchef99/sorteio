@@ -1,13 +1,8 @@
 {
     "version": 2,
+    "outputDirectory": "public",
     "builds": [
         { "src": "sorteio/create_pix.php", "use": "vercel-php@0.7.3" },
         { "src": "sorteio/status.php", "use": "vercel-php@0.7.3" }
-    ],
-    "routes": [
-        {
-            "src": "/public/(.*)",
-            "dest": "/$1"
-        }
     ]
 }
