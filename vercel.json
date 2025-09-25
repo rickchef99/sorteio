@@ -1,8 +1,18 @@
 {
-    "version": 2,
     "outputDirectory": "public",
-    "builds": [
-        { "src": "sorteio/create_pix.php", "use": "vercel-php@0.7.3" },
-        { "src": "sorteio/status.php", "use": "vercel-php@0.7.3" }
+    "functions": {
+      "api/sorteio/*.php": {
+        "runtime": "vercel-php@0.7.3"
+      }
+    },
+    "rewrites": [
+      {
+        "source": "/sorteio/create_pix.php",
+        "destination": "/api/sorteio/create_pix.php"
+      },
+      {
+        "source": "/sorteio/status.php",
+        "destination": "/api/sorteio/status.php"
+      }
     ]
-}
+  }
